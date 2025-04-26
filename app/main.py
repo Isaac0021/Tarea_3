@@ -1,8 +1,7 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-app = FastAPI()
-years = []
 
-class Years(BaseModel):
-    year: int
-    name: str
+app = FastAPI()
+
+@app.get("/year")
+def get_year(year: int):
+    return {"mensaje": f"Estás en el año {year} de tu carrera"}
